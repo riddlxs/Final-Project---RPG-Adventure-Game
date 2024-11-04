@@ -177,7 +177,7 @@ private:
 
 public:
     Merchant() {
-        weapons.push_back(Item("Throwing Knife", 15.0f, 22));
+        weapons.push_back(Item("Elemental Core, Level 2", 100.0f, 1));
         weapons.push_back(Item("Shield", 16.0f, 1));
         weapons.push_back(Item("Mage's Lost Wand", 23.0f, 1));
         weapons.push_back(Item("Ring of Protection", 21.0f, 1));
@@ -410,7 +410,7 @@ public:
 
 private:
     void visitMerchant() { // need to repeat same text as above for town class instead of mercant class
-        std::cout << "\nMikage: Greetings, I am Mikage, the merchant of these lands.What would you like to know ? \n"
+        std::cout << "\nReo: Greetings, I am Reo, the merchant of these lands. What would you like to know ? \n" // changed to hide his family name at first to make the merchant more human like, him being scared of being shunned because of his parents!!
             << "\n1. Tell me about your items.\n" 
             << "2. What's your story?\n"
             << "3. Just browsing.\n"; 
@@ -421,17 +421,17 @@ private:
 
         switch (choice) {
         case 1:
-            std::cout << "\nMikage: I have many items from health potions to powerful weapons for you to use on your adventure, " << playerName << "!\n";
+            std::cout << "\nReo: I have many items from health potions to powerful weapons for you to use on your adventure, " << playerName << "!\n";
             buyItem();
             break;
         case 2:
             tellStory(); // tell story is used in town to avoid repeating huge amounts of text
             break;
         case 3:
-            std::cout << "\nMikage: Very well! Let me know if you need anything, I am always here for you!\n\n";
+            std::cout << "\nReo: Very well! Let me know if you need anything, I am always here for you!\n\n";
             break;
         default:
-            std::cout << "\nMikage: I don't understand that. What do you mean?\n\n";
+            std::cout << "\nReo: I don't understand that. What do you mean?\n\n";
             break;
         }
     }
@@ -458,7 +458,7 @@ private:
     }
 
     void tellStory() { // tell story
-        std::cout << "\nMikage: Ah, as a young prince, I once stood against my parents' oppressive rule, unable to bear their tyranny.\n"
+        std::cout << "\nReo: Ah, as a young prince, I once stood against my parents' oppressive rule, unable to bear their tyranny.\n"
             "I escaped the royal life, determined to fight against their evil, but for reasons I still do not fully understand, I lost my powers.\n"
             "So, I have lived as a humble merchant, quietly plotting to thwart their reign.\n"
             "My loving parents kidnapped my best friend, holding him hostage within my very own place of birth.\n"
@@ -473,7 +473,7 @@ private:
     }
     void askMoreAboutMikage() const {
         std::cout << //all options are the same as before, the basic cout line, then the 3 options, then the switch cases on what the mikage will respond with depending on what the player chooses
-            "1. Mikage... please tell me more about your story.\n" // i want to keep building loops like in real videogames, where the player must choose between options to make realistic dialogue
+            "1. \"You sound alot like prince mikage\", you whisper under your breath. Please tell me more about your story.\n" // i want to keep building loops like in real videogames, where the player must choose between options to make realistic dialogue
             << "2. Just browsing.\n";
 
         int choice; //stores the choice
@@ -483,7 +483,7 @@ private:
         switch (choice) {
         case 1:
             std::cout << "\nMikage: If you really want to hear, here's my full story.\n"
-                << "My name is Mikage, and from a young age, I possessed supernatural powers that set me apart.\n"
+                << "My name is Mikage, Prince Mikage, and from a young age, I possessed supernatural powers that set me apart.\n"
                 << "But instead of being celebrated, I was surrounded by people who cared more about my royal status than about me.\n"
                 << "My parents saw me as only royal blood to hold their grip on power even after death.\n"
                 << "To them, I was just a means to an end, and the so called friends I had were only drawn to me by fear or ambition.\n"
@@ -522,7 +522,7 @@ private:
 
             std::cout << "\nWould you like to know more? \n"
                 << "1. Tell me more about your best friend, Mikage.\n"
-                << "2. I will help you return home.\n"
+                << "2. I never knew that you fought on our side... I will help you return home.\n" // changed up some dialouge to make it more intense!
                 << "3. Goodbye.\n";
 
             int additionalChoiceMikage; // stores additional choice, this is just like askmoreaboutmikage variable, but its for after mikage tells you his story. this is for deeper conversation, to ask more about his story. This only appears if you follow the certain steps, like asking mikage about his full story.
@@ -542,7 +542,7 @@ private:
                     << "I cannot remember the way back, but with your help, I believe we can uncover the way together. The only problem, is my lack of powers...\n\n";
 
                 //add an additional conversation to keep it going
-                std::cout << "1. I have powers that can help.\n"
+                std::cout << "1. I have powers, i can help you return home, and i can help you control them.\n"
                     << "2. Goodbye.\n";
 
                 int playerChoice; //player choice, another variable just like the others, it is included within the additionalchoicemikage so nothing will clash!
@@ -553,7 +553,7 @@ private:
                 case 1: // more lore about NPC can help me build a storyline to help with the growing of my code! This will also help me learn new commands that help me build onto different senarios. 
                     std::cout << "\nYou: Mikage, I was born like you. I have secret powers that can help us. My whole journey was to destroy your parents rule, with these powers i have been gifted to by god.\n" //reveal in the story, to keep the players entertained!
                         << "I have the ability to wield and bend elements to my will, slowly learning how to control them to my liking. I promise you, I will help you rescue your bestfriend, regain your powers, and your throne.\n"
-                        << "\nMikage: You are the same as I am... Thank you, I could never begin to repay the kindness you have shown me. \n\n";
+                        << "\nMikage: You are the same as I am... Thank you, I could never begin to repay the kindness you have shown me. I will one day see his face again and free my people thanks to you. \n\n";
                     break;
 
                 case 2:
@@ -880,3 +880,4 @@ int main() { // made main short and sweet, it just runs the game class
     game.start(); // then start it
     return 0; // always end with return 0
 }
+// future development, implementing a system where the merchant joins your team and helps fight
